@@ -83,7 +83,7 @@ CREATE TABLE 'boats' (
     */
 
 CREATE TABLE 'training' (
-  id                 INTEGER,
+  id             INTEGER,
   boat 		     INTEGER default 0,
   gym		     INTEGER default 0,
   cardio	     INTEGER default 0,
@@ -91,10 +91,10 @@ CREATE TABLE 'training' (
 );
 
 CREATE TABLE 'gym' (
-  id             	INTEGER,
-  pushups        	INTEGER default 0,
-  plank 	     	INTEGER default 0,
-  squat 	     	INTEGER default 0,
+  id             INTEGER,
+  pushups        INTEGER default 0,
+  plank 	     INTEGER default 0,
+  squat 	     INTEGER default 0,
   PRIMARY KEY('id' AUTOINCREMENT)
 );
 

@@ -83,20 +83,13 @@ CREATE TABLE 'boats' (
     */
 
 CREATE TABLE 'training' (
-  id                 INTEGER,
-  boat 		     INTEGER default 0,
-  gym		     INTEGER default 0,
-  cardio	     INTEGER default 0,
+  id             INTEGER,
+  nabirania      INTEGER default 0,
+ lezhanka_otblyk  INTEGER default 0,
+ lezhanka_priteglyane INTEGER default 0,
   PRIMARY KEY('id' AUTOINCREMENT)
 );
 
-CREATE TABLE 'gym' (
-  id             	INTEGER,
-  pushups        	INTEGER default 0,
-  plank 	     	INTEGER default 0,
-  squat 	     	INTEGER default 0,
-  PRIMARY KEY('id' AUTOINCREMENT)
-);
 
 
 
@@ -119,10 +112,8 @@ insert into boats (price,herstelldatum,typ,material,besitz) values (16500,'04-04
 insert into boats (price,herstelldatum,typ,material,besitz) values (18000,'02-02-2013','canu',      'fabric','private');
 
 
-insert into training (boat,cardio) values (1,2);
-insert into training (cardio,gym) values (1,4);
-
-insert into gym (pushups,plank,squat) values (20,30,40);
+insert into training (nabirania,lezhanka_otblyk) values (1,2);
+insert into training (lezhanka_otblyk,lezhanka_priteglyane) values (1,4);
 
 /* ------------------------- Enumerated Types  ------------------------- */
 

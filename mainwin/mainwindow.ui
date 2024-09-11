@@ -31,7 +31,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMember">
@@ -54,9 +54,17 @@
     <addaction name="actionNewMitglied"/>
     <addaction name="actionListMitglied"/>
    </widget>
+   <widget class="QMenu" name="menuTraining">
+    <property name="title">
+     <string>Training</string>
+    </property>
+    <addaction name="actionListTrain"/>
+    <addaction name="actionNewTrain"/>
+   </widget>
    <addaction name="menuMember"/>
    <addaction name="menuMitglied"/>
    <addaction name="menuBoat"/>
+   <addaction name="menuTraining"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNewMember">
@@ -64,7 +72,7 @@
     <iconset theme="address-book-new"/>
    </property>
    <property name="text">
-    <string>New</string>
+    <string>&amp;New</string>
    </property>
   </action>
   <action name="actionListMember">
@@ -72,7 +80,7 @@
     <iconset theme="format-justify-fill"/>
    </property>
    <property name="text">
-    <string>List</string>
+    <string>&amp;List</string>
    </property>
   </action>
   <action name="actionNewMitglied">
@@ -80,7 +88,7 @@
     <iconset theme="list-add"/>
    </property>
    <property name="text">
-    <string>New</string>
+    <string>&amp;New</string>
    </property>
   </action>
   <action name="actionListMitglied">
@@ -88,12 +96,27 @@
     <iconset theme="format-justify-fill"/>
    </property>
    <property name="text">
-    <string>List</string>
+    <string>&amp;List</string>
    </property>
   </action>
   <action name="actionAddBoat">
    <property name="text">
-    <string>Add</string>
+    <string>&amp;Add</string>
+   </property>
+  </action>
+  <action name="actionListTrain">
+   <property name="text">
+    <string>List Trainings</string>
+   </property>
+  </action>
+  <action name="actionNewTrain">
+   <property name="text">
+    <string>New Training</string>
+   </property>
+  </action>
+  <action name="actionTraining_Diary">
+   <property name="text">
+    <string>Training Diary</string>
    </property>
   </action>
  </widget>

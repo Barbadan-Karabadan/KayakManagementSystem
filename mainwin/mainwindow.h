@@ -13,6 +13,9 @@
 #include "boat/boatwindow.h"
 #include "boat/boatdialog.h"
 
+#include "training/trainingwindow.h"
+#include "training/trainingdialog.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -37,6 +40,11 @@ public slots:
     void listMitglied();
     void addBoat();
     void updateActions();
+    void newTrain();
+    void listTrain();
+
+//private slots:
+    //void on_actionListTrain_triggered();
 
 private:
     Ui::MainWindow *ui;

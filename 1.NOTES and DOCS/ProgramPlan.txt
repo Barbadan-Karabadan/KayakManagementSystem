@@ -1,0 +1,8 @@
+member (membership fee (vary), 1st name, 2nd name, age, sex, member since (periods), membership type (guest, athlete, trainer, manager, amateur))
+training (training plans/goals (trainer) - training in gym, boat, cardio; digital reports (athlete)) - both are connected to dates
+boats (type(canu, cayak, para-canu, para-cayak), year_mfc (manifacturing date), material (wood, fabric, carbon), price, ownership (private, sponsored, club))
+club management
+  depends on member, boats, financial balance, expences
+  income (membership fee, boat rent, guest access fee, boat house rent (park fee), federation subsidation, advertisement, free labour)
+  expences (fixed cost (salary, rent), maintenance (electricity, water, heating), amortization, purchase material (procurement))
+

@@ -42,6 +42,8 @@ void MainWindow::createActions()
     connect(ui->actionNewMitglied,  SIGNAL(triggered()), this, SLOT(newMitglied()));
     connect(ui->actionListMitglied, SIGNAL(triggered()), this, SLOT(listMitglied()));
     connect(ui->actionAddBoat,      SIGNAL(triggered()), this, SLOT(addBoat()));
+    connect(ui->actionNewTrain,     SIGNAL(triggered()), this, SLOT(newTrain()));
+    connect(ui->actionListTrain,    SIGNAL(triggered()), this, SLOT(listTrain()));
 }
 
 
@@ -49,6 +51,25 @@ void MainWindow::listMembers()
 {
     MemberWindow *memberWindow = new MemberWindow();
     QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(memberWindow);
+    subWindow->show();
+}
+
+
+void MainWindow::newTrain()
+{
+    TrainingDialog perwindow;
+    // Modales Window:
+    // Es ist das oberste Window
+    // alle anderen Windows sind nicht bedienbar
+    perwindow.setModal(true);
+    perwindow.show();
+    perwindow.exec();
+}
+
+void MainWindow::listTrain()
+{
+    TrainingWindow *trainWindow = new TrainingWindow();
+    QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(trainWindow);
     subWindow->show();
 }
 
@@ -95,3 +116,5 @@ void MainWindow::addBoat()
     perwindow.show();
     perwindow.exec();
 }
+
+

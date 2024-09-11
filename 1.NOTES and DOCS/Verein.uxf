@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>135</x>
+      <y>297</y>
+      <w>540</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Mitglieder
+--
+Membership fee (vary)
+1st name (char)
+Age (integer)
+Sex (type(M, F)
+Member since (Periods)
+Membership type (type(guest, amateur, athlete, trainer ,manager) // different fees
+PaidUntil (Periods) //depends on a date,
+ 
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>927</x>
+      <y>297</y>
+      <w>324</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Boote
+--
+Boats (type(canu, cayak, para-canu, para-cayak) 
+Brand (text)
+Model (text)
+Year_mfc (manifacturing date) 
+Material (type(wood, fabric, carbon)
+Price (double)
+Ownership (type(private, sponsored, club))
+GarageFee // if private
+PaidUntil // if private </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>927</x>
+      <y>567</y>
+      <w>576</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>Trainings
+--
+training (type(training plans/goals (trainer)
+training (type( gym, boat, cardio);
+trainig Duration (Minutes) 
+digital reports (athlete)) // create a note for today's training, as a feedback to the Trainer
+
+//both are connected to dates</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>657</y>
+      <w>891</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Finanzen
+-- 
+Financial balance = ((depends on Mitglieder.Type, Mitglieder.PaidUntil, boats.PaidUntil, boats.GarageFee)+ Income) - Expences
+Income (membership fee, boat rent, guest access fee, boat house rent (park fee), federation subsidation, advertisement, free labour)
+Expences (fixed cost (salary, rent), maintenance (electricity, water, heating), amortization, purchase material (procurement))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>378</y>
+      <w>279</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>290.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>459</y>
+      <w>423</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>450.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>450</y>
+      <w>36</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>9</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>PLZ
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>171</y>
+      <w>36</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>459</y>
+      <w>36</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>450</y>
+      <w>630</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;230.0;680.0;10.0</additional_attributes>
+  </element>
+</diagram>
