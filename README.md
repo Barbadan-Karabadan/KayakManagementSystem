@@ -27,3 +27,4 @@ qmake && make
 ```css
 ./viena
 ```
+# KayakManagementSystem

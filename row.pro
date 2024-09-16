@@ -16,7 +16,10 @@ SOURCES += \
     mitglied/mitgliedwindow.cpp \
     mitglied/mitglieddialog.cpp \
     boat/boatwindow.cpp \
-    boat/boatdialog.cpp
+    boat/boatdialog.cpp \
+    training/trainingwindow.cpp \
+    training/trainingdialog.cpp
+
 
 HEADERS += \
     db/connection.h \
@@ -26,7 +29,9 @@ HEADERS += \
     mitglied/mitgliedwindow.h \
     mitglied/mitglieddialog.h \
     boat/boatwindow.h \
-    boat/boatdialog.h
+    boat/boatdialog.h   \
+    training/trainingwindow.h \
+    training/trainingdialog.h
 
 FORMS += \
     mainwin/mainwindow.ui \
@@ -35,7 +40,9 @@ FORMS += \
     mitglied/mitgliedwindow.ui \
     mitglied/mitglieddialog.ui \
     boat/boatwindow.ui \
-    boat/boatdialog.ui
+    boat/boatdialog.ui\
+    training/trainingwindow.ui \
+    training/trainingdialog.ui
 
 #SOURCES = $$files(*.cpp, true)
 #HEADERS = $$files(*.h, true)
