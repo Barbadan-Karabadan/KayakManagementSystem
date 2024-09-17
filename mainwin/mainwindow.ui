@@ -61,10 +61,17 @@
     <addaction name="actionListTrain"/>
     <addaction name="actionNewTrain"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_Paddle_Management_System"/>
+   </widget>
    <addaction name="menuMember"/>
    <addaction name="menuMitglied"/>
    <addaction name="menuBoat"/>
    <addaction name="menuTraining"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNewMember">
@@ -106,17 +113,22 @@
   </action>
   <action name="actionListTrain">
    <property name="text">
-    <string>List Trainings</string>
+    <string>&amp;List Trainings</string>
    </property>
   </action>
   <action name="actionNewTrain">
    <property name="text">
-    <string>New Training</string>
+    <string>&amp;New Training</string>
    </property>
   </action>
   <action name="actionTraining_Diary">
    <property name="text">
     <string>Training Diary</string>
+   </property>
+  </action>
+  <action name="actionAbout_Paddle_Management_System">
+   <property name="text">
+    <string>About Paddle Management System</string>
    </property>
   </action>
  </widget>

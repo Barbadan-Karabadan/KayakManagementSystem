@@ -80,7 +80,7 @@ void GymWindow::verlassen()
 
 void GymWindow::sqlquery(bool filter)
 {
-    QString query = "select id,pushups,plank,squat from gym";
+    QString query = "select id, pushups, plank, squat, benchPress,deadlift, pullUp, legPress, tricepPushDown, dumbbellRow, seatedRow) from gym";
     if (filter)
     {
         QString name = ui->searchTextEdit->text();
@@ -90,8 +90,15 @@ void GymWindow::sqlquery(bool filter)
     sql->setQuery(query);
     sql->setHeaderData(0, Qt::Horizontal, "id");
     sql->setHeaderData(1, Qt::Horizontal, "pushups");
-    sql->setHeaderData(2, Qt::Horizontal, "plank");
-    sql->setHeaderData(3, Qt::Horizontal, "squat");
+    sql->setHeaderData(1, Qt::Horizontal, "plank");
+    sql->setHeaderData(1, Qt::Horizontal, "squat");
+    sql->setHeaderData(1, Qt::Horizontal, "benchPress");
+    sql->setHeaderData(1, Qt::Horizontal, "deadlift");
+    sql->setHeaderData(1, Qt::Horizontal, "pullUp");
+    sql->setHeaderData(1, Qt::Horizontal, "legPress");
+    sql->setHeaderData(1, Qt::Horizontal, "tricepPushDown");
+    sql->setHeaderData(2, Qt::Horizontal, "dumbbellRow");
+    sql->setHeaderData(3, Qt::Horizontal, "seatedRow");
 
     // Verbinden des Models mit der View
     ui->dbView->setModel(sql);

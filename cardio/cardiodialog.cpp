@@ -1,27 +1,27 @@
-#include "boatdialog.h"
-#include "ui_boatdialog.h"
+#include "cardiodialog.h"
+#include "ui_cardiodialog.h"
 
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-BoatDialog::BoatDialog(QWidget *parent, int pid) :
+CardioDialog::CardioDialog(QWidget *parent, int pid) :
     QDialog(parent),
-    ui(new Ui::BoatDialog),
+    ui(new Ui::CardioDialog),
     pid(pid)
 {
     ui->setupUi(this);
-    this->setWindowTitle("BoatDialog editieren");
+    this->setWindowTitle("CardioDialog editieren");
 
     QObject::connect(ui->saveButton, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(ui->quitButton, SIGNAL(clicked()), SLOT(verlassen()));
     QObject::connect(ui->delButton,  SIGNAL(clicked()), SLOT(loeschen()));
 
-    QSqlQuery queryboattype("select * from boattype");
-    while(queryboattype.next())
+    QSqlQuery querycardiotype("select * from cardiotype");
+    while(querycardiotype.next())
     {
-        ui->typComboBox->addItem(queryboattype.value(1).toString());
+        ui->typComboBox->addItem(querycardiotype.value(1).toString());
     }
 
     QSqlQuery querymaterialtype("select * from materialtype");
@@ -36,10 +36,10 @@ BoatDialog::BoatDialog(QWidget *parent, int pid) :
         ui->besitzComboBox->addItem(querybesitz.value(1).toString());
     }
 
-    // BoatDialogen-Datensatz holen
+    // CardioDialogen-Datensatz holen
     if (pid != 0)
     {
-        QSqlQuery queryone("select * from boats where id = " + QString::number(pid));
+        QSqlQuery queryone("select * from cardios where id = " + QString::number(pid));
         if (queryone.next())
         {
             ui->priceComboBox->setText(queryone.value(1).toString());
@@ -53,12 +53,13 @@ BoatDialog::BoatDialog(QWidget *parent, int pid) :
         ui->delButton->setDisabled(true);
 }
 
-BoatDialog::~BoatDialog()
+CardioDialog::~CardioDialog()
 {
     delete ui;
 }
+/*
 
-void BoatDialog::save()
+void CardioDialog::save()
 {
     //QString price = ui->priceComboBox->text();
     int price = ui->priceComboBox->currentIndex();
@@ -67,7 +68,7 @@ void BoatDialog::save()
     string s = ui->typComboBox->itemData(typeInd).toString().toStdString() ;
     // qDebug() << s;
     cout << "Test: " << s;
-/*
+
 
     QString telnr = ui->telefonnummerLineEdit->text();
     if (name.isEmpty() || adr.isEmpty() || telnr.isEmpty())
@@ -76,12 +77,12 @@ void BoatDialog::save()
     int currentindex = ui->materialComboBox->currentIndex();
     QVariant variant = ui->materialComboBox->itemData(currentindex);
     int plzid = variant.toInt();
-*/
+
     if (pid == 0)
     {
         // Speichern in die Datenbank
         QSqlQuery insert;
-        insert.prepare("insert into Boat (price,herstelldatum /*needs to be added for all columns*/ ) values (:price,:date)");
+        insert.prepare("insert into Cardio (price,herstelldatum /*needs to be added for all columns ) values (:price,:date)");
         insert.bindValue(":price", price);
         insert.bindValue(":date", date);
 //      insert.bindValue(":telnr", telnr);
@@ -95,6 +96,8 @@ void BoatDialog::save()
             msg.exec();
         }
     }
+
+*/
 /*    else {
         // UPDATE table_name
         // SET column1 = value1, column2 = value2, ...
@@ -122,13 +125,13 @@ void BoatDialog::save()
     verlassen();
 }
 
-void BoatDialog::loeschen()
+void CardioDialog::loeschen()
 {
     // Löschen macht nur Sinn, bei einem vorhandenen Datensatz
     if (pid != 0) {
         QMessageBox msg;
         msg.setText("Willst du wirklich löschen?");
-        msg.setWindowTitle("BoatDialog löschen");
+        msg.setWindowTitle("CardioDialog löschen");
         // msg.addButton("Ok", QMessageBox::AcceptRole);
         // msg.addButton("Cancel", QMessageBox::NoRole);
         msg.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
@@ -144,7 +147,7 @@ void BoatDialog::loeschen()
     }
 }
 
-void BoatDialog::verlassen()
+void CardioDialog::verlassen()
 {
     this->close();
 }

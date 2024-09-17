@@ -1,5 +1,5 @@
-#ifndef TrainingDialog_H
-#define TrainingDialog_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QDebug>
 #include <QDialog>
@@ -29,4 +29,3 @@ private:
     int pid;
 };
 
-#endif

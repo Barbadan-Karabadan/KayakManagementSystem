@@ -1,12 +1,12 @@
-#include "gymwindow.h"
-#include "ui_gymwindow.h"
+#include "cardiowindow.h"
+#include "ui_cardiowindow.h"
 
-GymWindow::GymWindow(QWidget *parent)
+CardioWindow::CardioWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::GymWindow)
+    , ui(new Ui::CardioWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("Trainigs Program");
+    this->setWindowTitle("Cardio");
 
     QObject::connect(ui->newButton, SIGNAL(clicked()), SLOT(neuerKontakt()));
     // QObject::connect(ui->plzButton, SIGNAL(clicked()), SLOT(plzVerwaltung()));
@@ -21,15 +21,15 @@ GymWindow::GymWindow(QWidget *parent)
     sqlquery(false);
 }
 
-GymWindow::~GymWindow()
+CardioWindow::~CardioWindow()
 {
     delete ui;
     delete sql;
 }
 
-void GymWindow::neuerKontakt()
+void CardioWindow::neuerKontakt()
 {
-    GymDialog perwindow;
+    CardioDialog perwindow;
     // Modales Window:
     // Es ist das oberste Window
     // alle anderen Windows sind nicht bedienbar
@@ -38,19 +38,19 @@ void GymWindow::neuerKontakt()
     perwindow.exec();
 
     // hier wurde das Window wieder geschlossen
-    // Update der GymDialogenliste
+    // Update der CardioDialogenliste
     sqlquery(false);
 }
 
-void GymWindow::editKontakt(QModelIndex index)
+void CardioWindow::editKontakt(QModelIndex index)
 {
     // Zeile in der Tableview, auf die geklickt wurde
     int row = index.row();
     // wir holen mit der Zeile die versteckte PId heraus
     int pid = ui->dbView->model()->index(row, 0).data().toInt();
 
-    // GymDialogen - Window starten
-    GymDialog perwindow(this, pid);
+    // CardioDialogen - Window starten
+    CardioDialog perwindow(this, pid);
     // Modales Window:
     // Es ist das oberste Window
     // alle anderen Windows sind nicht bedienbar
@@ -59,28 +59,28 @@ void GymWindow::editKontakt(QModelIndex index)
     perwindow.exec();
 
     // hier wurde das Window wieder geschlossen
-    // Update der GymDialogenliste
+    // Update der CardioDialogenliste
     sqlquery(false);
 }
 
-void GymWindow::plzVerwaltung()
+void CardioWindow::plzVerwaltung()
 {
 
 }
 
-void GymWindow::suchen()
+void CardioWindow::suchen()
 {
     sqlquery(true);
 }
 
-void GymWindow::verlassen()
+void CardioWindow::verlassen()
 {
     this->close();
 }
 
-void GymWindow::sqlquery(bool filter)
+void CardioWindow::sqlquery(bool filter)
 {
-    QString query = "select id,pushups,plank,squat from gym";
+    QString query = "select id,trainingDate,paddelErgometerCanu,paddelErgometerKayak,running, bycicling from cardios";
     if (filter)
     {
         QString name = ui->searchTextEdit->text();
@@ -89,9 +89,11 @@ void GymWindow::sqlquery(bool filter)
     }
     sql->setQuery(query);
     sql->setHeaderData(0, Qt::Horizontal, "id");
-    sql->setHeaderData(1, Qt::Horizontal, "pushups");
-    sql->setHeaderData(2, Qt::Horizontal, "plank");
-    sql->setHeaderData(3, Qt::Horizontal, "squat");
+    sql->setHeaderData(2, Qt::Horizontal, "herstelldatum");
+    sql->setHeaderData(3, Qt::Horizontal, "paddelErgometerCanu");
+    sql->setHeaderData(4, Qt::Horizontal, "paddelErgometerKayak");
+    sql->setHeaderData(5, Qt::Horizontal, "running");
+    sql->setHeaderData(5, Qt::Horizontal, "bycicling");
 
     // Verbinden des Models mit der View
     ui->dbView->setModel(sql);

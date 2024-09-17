@@ -3,6 +3,8 @@
 
 #include "member/memberdialog.h"
 #include "boat/boatdialog.h"
+#include "training/trainingdialog.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
