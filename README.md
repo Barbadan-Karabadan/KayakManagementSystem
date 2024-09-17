@@ -1,4 +1,4 @@
-# Project: rowingclub
+# KayakManagementSystem
 
 ## Set the database in directory db:
 
@@ -27,6 +27,3 @@ qmake && make
 ```css
 ./viena
 ```
-# KayakManagementSystem
-# KayakManagementSystem
-# KayakManagementSystem
