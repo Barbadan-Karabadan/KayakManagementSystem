@@ -57,10 +57,10 @@ CardioDialog::~CardioDialog()
 {
     delete ui;
 }
-/*
 
 void CardioDialog::save()
 {
+/*
     //QString price = ui->priceComboBox->text();
     int price = ui->priceComboBox->currentIndex();
     QString date  = ui->herstelldatumDateEdit->text();
@@ -122,7 +122,7 @@ void CardioDialog::save()
     }
 */
     // Window schließen
-    verlassen();
+    // verlassen();
 }
 
 void CardioDialog::loeschen()

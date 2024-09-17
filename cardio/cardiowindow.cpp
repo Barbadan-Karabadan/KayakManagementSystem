@@ -89,7 +89,7 @@ void CardioWindow::sqlquery(bool filter)
     }
     sql->setQuery(query);
     sql->setHeaderData(0, Qt::Horizontal, "id");
-    sql->setHeaderData(1, Qt::Horizontal, "herstelldatum");
+    sql->setHeaderData(1, Qt::Horizontal, "trainingDate");
     sql->setHeaderData(2, Qt::Horizontal, "paddelErgometerCanu");
     sql->setHeaderData(3, Qt::Horizontal, "paddelErgometerKayak");
     sql->setHeaderData(4, Qt::Horizontal, "running");
