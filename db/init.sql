@@ -1,8 +1,6 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS mitglied;
 DROP TABLE IF EXISTS boats;
-DROP TABLE IF EXISTS Plz;
-DROP TABLE IF EXISTS Personen;
 
 CREATE TABLE users (
   username TEXT PRIMARY KEY NOT NULL,
@@ -14,31 +12,6 @@ VALUES
 ('darin', 'Darin Darinov', 'baim@d.bg'),
 ('gogoe', 'Ivan Petkanov', 'momo@g.bg'),
 ('boiko', 'Boiko Morozov', 'hubo@b.bg');
-
-CREATE TABLE if not exists 'Plz' (
-  'PlzId'	INTEGER NOT NULL,
-  'PlzNummer'	INTEGER NOT NULL UNIQUE,
-  'PlzOrt'	TEXT NOT NULL,
-  PRIMARY KEY('PlzId' AUTOINCREMENT));
-
-/* добра идея ми изглежда по-голямата част от нашата таблица member да е тази от Personen */
-CREATE TABLE if not exists 'Personen' (
-  'PId'		INTEGER NOT NULL,
-  'PName'	TEXT NOT NULL,
-  'PAdr'	TEXT NOT NULL,
-  'PTelnr'	TEXT NOT NULL,
-  'PPlzFK'	INTEGER NOT NULL,
-  PRIMARY KEY('PId' AUTOINCREMENT),
-  FOREIGN KEY('PPlzFK') REFERENCES 'Plz'('PlzId'));
-
-delete from Personen;
-delete from Plz;
-insert into Plz (PlzNummer,PlzOrt) values (1100,'Wien');
-insert into Plz (PlzNummer,PlzOrt) values (1200,'Wien');
-insert into Plz (PlzNummer,PlzOrt) values (3100,'St.Pölten');
-insert into Personen (PName,PAdr,PTelnr,PPlzFK) values ('Mary','Weg 1','123', (select PlzId from Plz where PlzNummer=1200));
-insert into Personen (PName,PAdr,PTelnr,PPlzFK) values ('Peter','Strasse 1','456', (select PlzId from Plz where PlzNummer=1100));
-insert into Personen (PName,PAdr,PTelnr,PPlzFK) values ('Fritz','Weg 2','789', (select PlzId from Plz where PlzNummer=3100));
 
 CREATE TABLE 'membership' (
   'id'     INTEGER,
@@ -76,50 +49,6 @@ CREATE TABLE 'boats' (
   PRIMARY KEY('id' AUTOINCREMENT)
 );
 
-/* in gym: 4X 10 reps of situps,
-	 : 4X 10 reps of 		
-
-
-    */
-
-CREATE TABLE 'training' (
-  id                 INTEGER,
-  boat 		         INTEGER default 0,
-  gym		         INTEGER default 0,
-  cardio	         INTEGER default 0,
-  PRIMARY KEY('id' AUTOINCREMENT)
-);
-
-CREATE TABLE 'gym' (
-  id             	INTEGER,
-  pushups        	INTEGER default 0,
-  plank 	     	INTEGER default 0,
-  squat 	     	INTEGER default 0,
-  benchPress 	    INTEGER default 0,
-  deadlift 	     	INTEGER default 0,
-  pullUp 	     	INTEGER default 0,
-  legPress 	     	INTEGER default 0,
-  tricepPushDown 	INTEGER default 0,
-  dumbbellRow 	    INTEGER default 0,
-  seatedRow 	    INTEGER default 0,
-  PRIMARY KEY('id' AUTOINCREMENT)
-);
-
-CREATE TABLE 'cardios' (
-  id                            INTEGER,
-  trainingDate                  DATE NULL DEFAULT NULL,
-  paddelErgometerCanu           INTEGER default 0,
-  paddelErgometerKayak          INTEGER default 0,
-  running                       INTEGER default 0,
-  bycicling                     INTEGER default 0,
-
-  PRIMARY KEY('id' AUTOINCREMENT)
-);
-
-
-
-/*data insertion*/
-
 insert into boats (price,herstelldatum,typ,material,besitz) values (10000,'2020-11-24','canu',      'fabric','sponsored');
 insert into boats (price,herstelldatum,typ,material,besitz) values ( 8000,'2023-01-23','para-canu', 'fabric','club');
 insert into boats (price,herstelldatum,typ,material,besitz) values (14500,'2022-05-06','cayak',     'fabric','club');
@@ -127,20 +56,6 @@ insert into boats (price,herstelldatum,typ,material,besitz) values ( 9900,'2015-
 insert into boats (price,herstelldatum,typ,material,besitz) values (11000,'2004-03-04','canu',      'wood',  'club');
 insert into boats (price,herstelldatum,typ,material,besitz) values (11500,'2005-07-20','para-cayak','fabric','private');
 insert into boats (price,herstelldatum,typ,material,besitz) values (14000,'2012-10-10','canu',      'fabric','private');
-
-insert into boats (price,herstelldatum,typ,material,besitz) values (20000,'20-11-2012','canu',      'fabric','sponsored');
-insert into boats (price,herstelldatum,typ,material,besitz) values ( 9000,'01-06-2012','para-canu', 'fabric','club');
-insert into boats (price,herstelldatum,typ,material,besitz) values (15500,'12-12-2018','cayak',     'fabric','club');
-insert into boats (price,herstelldatum,typ,material,besitz) values ( 8900,'03-03-2016','cayak',     'carbon','private');
-insert into boats (price,herstelldatum,typ,material,besitz) values (12000,'05-05-2005','canu',      'wood',  'club');
-insert into boats (price,herstelldatum,typ,material,besitz) values (16500,'04-04-2011','para-cayak','fabric','private');
-insert into boats (price,herstelldatum,typ,material,besitz) values (18000,'02-02-2013','canu',      'fabric','private');
-
-
-insert into training (boat,cardio) values (1,2);
-insert into training (cardio,gym) values (1,4);
-insert into gym      (pushups,plank,squat,benchPress,deadlift, pullUp, legPress, tricepPushDown, dumbbellRow, seatedRow) values (10,20,30,40,50,60,70,80,90,1);
-insert into cardios  (trainingDate, paddelErgometerCanu, paddelErgometerKayak, running, bycicling) values ('2020-11-24' ,10,10,15,30);
 
 /* ------------------------- Enumerated Types  ------------------------- */
 

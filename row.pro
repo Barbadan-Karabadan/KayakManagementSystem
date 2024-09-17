@@ -11,38 +11,25 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwin/mainwindow.cpp \
-    member/memberwindow.cpp \
-    member/memberdialog.cpp \
     mitglied/mitgliedwindow.cpp \
     mitglied/mitglieddialog.cpp \
     boat/boatwindow.cpp \
-    boat/boatdialog.cpp \
-    training/trainingwindow.cpp \
-    training/trainingdialog.cpp
-
+    boat/boatdialog.cpp
 
 HEADERS += \
     db/connection.h \
     mainwin/mainwindow.h \
-    member/memberwindow.h \
-    member/memberdialog.h \
     mitglied/mitgliedwindow.h \
     mitglied/mitglieddialog.h \
     boat/boatwindow.h \
-    boat/boatdialog.h   \
-    training/trainingwindow.h \
-    training/trainingdialog.h
+    boat/boatdialog.h
 
 FORMS += \
     mainwin/mainwindow.ui \
-    member/memberwindow.ui \
-    member/memberdialog.ui \
     mitglied/mitgliedwindow.ui \
     mitglied/mitglieddialog.ui \
     boat/boatwindow.ui \
-    boat/boatdialog.ui\
-    training/trainingwindow.ui \
-    training/trainingdialog.ui
+    boat/boatdialog.ui
 
 #SOURCES = $$files(*.cpp, true)
 #HEADERS = $$files(*.h, true)

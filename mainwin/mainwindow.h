@@ -4,17 +4,11 @@
 #include <QMainWindow>
 #include <QtWidgets>
 
-#include "member/memberwindow.h"
-#include "member/memberdialog.h"
-
 #include "mitglied/mitgliedwindow.h"
 #include "mitglied/mitglieddialog.h"
 
 #include "boat/boatwindow.h"
 #include "boat/boatdialog.h"
-
-#include "training/trainingwindow.h"
-#include "training/trainingdialog.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -34,17 +28,11 @@ public:
 
 
 public slots:
-    void newMember();
-    void listMembers();
     void newMitglied();
     void listMitglied();
     void addBoat();
+    void listBoat();
     void updateActions();
-    void newTrain();
-    void listTrain();
-
-//private slots:
-    //void on_actionListTrain_triggered();
 
 private:
     Ui::MainWindow *ui;

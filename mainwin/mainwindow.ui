@@ -31,21 +31,15 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>30</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuMember">
-    <property name="title">
-     <string>Member</string>
-    </property>
-    <addaction name="actionNewMember"/>
-    <addaction name="actionListMember"/>
-   </widget>
    <widget class="QMenu" name="menuBoat">
     <property name="title">
      <string>Boat</string>
     </property>
     <addaction name="actionAddBoat"/>
+    <addaction name="actionListBoat"/>
    </widget>
    <widget class="QMenu" name="menuMitglied">
     <property name="title">
@@ -54,48 +48,16 @@
     <addaction name="actionNewMitglied"/>
     <addaction name="actionListMitglied"/>
    </widget>
-   <widget class="QMenu" name="menuTraining">
-    <property name="title">
-     <string>Training</string>
-    </property>
-    <addaction name="actionListTrain"/>
-    <addaction name="actionNewTrain"/>
-   </widget>
-   <widget class="QMenu" name="menuAbout">
-    <property name="title">
-     <string>About</string>
-    </property>
-    <addaction name="actionAbout_Paddle_Management_System"/>
-   </widget>
-   <addaction name="menuMember"/>
    <addaction name="menuMitglied"/>
    <addaction name="menuBoat"/>
-   <addaction name="menuTraining"/>
-   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNewMember">
-   <property name="icon">
-    <iconset theme="address-book-new"/>
-   </property>
-   <property name="text">
-    <string>&amp;New</string>
-   </property>
-  </action>
-  <action name="actionListMember">
-   <property name="icon">
-    <iconset theme="format-justify-fill"/>
-   </property>
-   <property name="text">
-    <string>&amp;List</string>
-   </property>
-  </action>
   <action name="actionNewMitglied">
    <property name="icon">
     <iconset theme="list-add"/>
    </property>
    <property name="text">
-    <string>&amp;New</string>
+    <string>New</string>
    </property>
   </action>
   <action name="actionListMitglied">
@@ -103,32 +65,23 @@
     <iconset theme="format-justify-fill"/>
    </property>
    <property name="text">
-    <string>&amp;List</string>
+    <string>List</string>
    </property>
   </action>
   <action name="actionAddBoat">
+   <property name="icon">
+    <iconset theme="list-add"/>
+   </property>
    <property name="text">
-    <string>&amp;Add</string>
+    <string>Add</string>
    </property>
   </action>
-  <action name="actionListTrain">
-   <property name="text">
-    <string>&amp;List Trainings</string>
+  <action name="actionListBoat">
+   <property name="icon">
+    <iconset theme="format-justify-fill"/>
    </property>
-  </action>
-  <action name="actionNewTrain">
    <property name="text">
-    <string>&amp;New Training</string>
-   </property>
-  </action>
-  <action name="actionTraining_Diary">
-   <property name="text">
-    <string>Training Diary</string>
-   </property>
-  </action>
-  <action name="actionAbout_Paddle_Management_System">
-   <property name="text">
-    <string>About Paddle Management System</string>
+    <string>List</string>
    </property>
   </action>
  </widget>
