@@ -7,6 +7,7 @@ ui_*
 *.db
 Makefile
 *.*save*
+row.pro.user*
 tmp
 
 # Prerequisites
