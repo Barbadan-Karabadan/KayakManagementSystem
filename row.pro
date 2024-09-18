@@ -11,8 +11,6 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwin/mainwindow.cpp \
-    member/memberwindow.cpp \
-    member/memberdialog.cpp \
     mitglied/mitgliedwindow.cpp \
     mitglied/mitglieddialog.cpp \
     boat/boatwindow.cpp \
@@ -20,12 +18,9 @@ SOURCES += \
     training/trainingwindow.cpp \
     training/trainingdialog.cpp
 
-
 HEADERS += \
     db/connection.h \
     mainwin/mainwindow.h \
-    member/memberwindow.h \
-    member/memberdialog.h \
     mitglied/mitgliedwindow.h \
     mitglied/mitglieddialog.h \
     boat/boatwindow.h \
@@ -35,8 +30,6 @@ HEADERS += \
 
 FORMS += \
     mainwin/mainwindow.ui \
-    member/memberwindow.ui \
-    member/memberdialog.ui \
     mitglied/mitgliedwindow.ui \
     mitglied/mitglieddialog.ui \
     boat/boatwindow.ui \

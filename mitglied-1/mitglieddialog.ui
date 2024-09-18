@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MemberDialog</class>
- <widget class="QWidget" name="MemberDialog">
+ <class>MitgliedDialog</class>
+ <widget class="QWidget" name="MitgliedDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>321</width>
-    <height>194</height>
+    <width>397</width>
+    <height>227</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,6 +55,16 @@
      </item>
      <item row="3" column="1">
       <widget class="QComboBox" name="postleitzahlComboBox"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="membertypeComboBox"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Typ</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

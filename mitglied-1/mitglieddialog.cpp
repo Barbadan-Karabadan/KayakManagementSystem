@@ -1,13 +1,13 @@
-#include "memberdialog.h"
-#include "ui_memberdialog.h"
+#include "mitglieddialog.h"
+#include "ui_mitglieddialog.h"
 
-MemberDialog::MemberDialog(QWidget *parent, int pid) :
+MitgliedDialog::MitgliedDialog(QWidget *parent, int pid) :
     QDialog(parent),
-    ui(new Ui::MemberDialog),
+    ui(new Ui::MitgliedDialog),
     pid(pid)
 {
     ui->setupUi(this);
-    this->setWindowTitle("MemberDialog editieren");
+    this->setWindowTitle("MitgliedDialog editieren");
 
     QObject::connect(ui->saveButton, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(ui->quitButton, SIGNAL(clicked()), SLOT(verlassen()));
@@ -17,14 +17,16 @@ MemberDialog::MemberDialog(QWidget *parent, int pid) :
     QSqlQuery queryplz("select * from Plz");
     while(queryplz.next())
     {
-        // Eintragen in Combobox
-        // addItem hat zwei Paramter
-        // 1) sichbare Text
-        // 2) hier kann ein Key mitgegeben werden
         ui->postleitzahlComboBox->addItem(queryplz.value(1).toString() + " - " + queryplz.value(2).toString(),
                                           queryplz.value(0));
     }
-    // MemberDialogen-Datensatz holen
+
+    QSqlQuery querymembershiptype("select * from membershiptypes");
+    while(querymembershiptype.next())
+    {
+        ui->membertypeComboBox->addItem(querymembershiptype.value(1).toString());
+    }
+    // MitgliedDialogen-Datensatz holen
     if (pid != 0)
     {
         QSqlQuery queryone("select * from Personen where PId = " + QString::number(pid));
@@ -45,12 +47,12 @@ MemberDialog::MemberDialog(QWidget *parent, int pid) :
         ui->delButton->setDisabled(true);
 }
 
-MemberDialog::~MemberDialog()
+MitgliedDialog::~MitgliedDialog()
 {
     delete ui;
 }
 
-void MemberDialog::save()
+void MitgliedDialog::save()
 {
     QString name = ui->nameLineEdit->text();
     QString adr = ui->adresseLineEdit->text();
@@ -106,13 +108,13 @@ void MemberDialog::save()
     verlassen();
 }
 
-void MemberDialog::loeschen()
+void MitgliedDialog::loeschen()
 {
     // Löschen macht nur Sinn, bei einem vorhandenen Datensatz
     if (pid != 0) {
         QMessageBox msg;
         msg.setText("Willst du wirklich löschen?");
-        msg.setWindowTitle("MemberDialog löschen");
+        msg.setWindowTitle("MitgliedDialog löschen");
         // msg.addButton("Ok", QMessageBox::AcceptRole);
         // msg.addButton("Cancel", QMessageBox::NoRole);
         msg.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
@@ -128,7 +130,7 @@ void MemberDialog::loeschen()
     }
 }
 
-void MemberDialog::verlassen()
+void MitgliedDialog::verlassen()
 {
     this->close();
 }

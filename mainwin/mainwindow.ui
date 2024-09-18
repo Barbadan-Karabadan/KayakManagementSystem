@@ -31,21 +31,15 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>30</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuMember">
-    <property name="title">
-     <string>Member</string>
-    </property>
-    <addaction name="actionNewMember"/>
-    <addaction name="actionListMember"/>
-   </widget>
    <widget class="QMenu" name="menuBoat">
     <property name="title">
      <string>Boat</string>
     </property>
     <addaction name="actionAddBoat"/>
+    <addaction name="actionListBoat"/>
    </widget>
    <widget class="QMenu" name="menuMitglied">
     <property name="title">
@@ -67,7 +61,6 @@
     </property>
     <addaction name="actionAbout_Paddle_Management_System"/>
    </widget>
-   <addaction name="menuMember"/>
    <addaction name="menuMitglied"/>
    <addaction name="menuBoat"/>
    <addaction name="menuTraining"/>
@@ -107,6 +100,9 @@
    </property>
   </action>
   <action name="actionAddBoat">
+   <property name="icon">
+    <iconset theme="list-add"/>
+   </property>
    <property name="text">
     <string>&amp;Add</string>
    </property>
@@ -129,6 +125,14 @@
   <action name="actionAbout_Paddle_Management_System">
    <property name="text">
     <string>About Paddle Management System</string>
+   </property>
+  </action>
+  <action name="actionListBoat">
+   <property name="icon">
+    <iconset theme="format-justify-fill"/>
+   </property>
+   <property name="text">
+    <string>List</string>
    </property>
   </action>
  </widget>
