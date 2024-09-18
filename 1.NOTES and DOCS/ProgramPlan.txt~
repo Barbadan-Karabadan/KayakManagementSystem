@@ -5,3 +5,4 @@ club management
   depends on member, boats, financial balance, expences
   income (membership fee, boat rent, guest access fee, boat house rent (park fee), federation subsidation, advertisement, free labour)
   expences (fixed cost (salary, rent), maintenance (electricity, water, heating), amortization, purchase material (procurement))
+

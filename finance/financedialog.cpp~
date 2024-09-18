@@ -1,27 +1,27 @@
-#include "cardiodialog.h"
-#include "ui_cardiodialog.h"
+#include "financedialog.h"
+#include "ui_financedialog.h"
 
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-CardioDialog::CardioDialog(QWidget *parent, int pid) :
+FinanceDialog::FinanceDialog(QWidget *parent, int pid) :
     QDialog(parent),
-    ui(new Ui::CardioDialog),
+    ui(new Ui::FinanceDialog),
     pid(pid)
 {
     ui->setupUi(this);
-    this->setWindowTitle("CardioDialog editieren");
+    this->setWindowTitle("FinanceDialog editieren");
 
     QObject::connect(ui->saveButton, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(ui->quitButton, SIGNAL(clicked()), SLOT(verlassen()));
     QObject::connect(ui->delButton,  SIGNAL(clicked()), SLOT(loeschen()));
 
-    QSqlQuery querycardiotype("select * from cardiotype");
-    while(querycardiotype.next())
+    QSqlQuery queryfinancetype("select * from financetype");
+    while(queryfinancetype.next())
     {
-        ui->typComboBox->addItem(querycardiotype.value(1).toString());
+        ui->typComboBox->addItem(queryfinancetype.value(1).toString());
     }
 
     QSqlQuery querymaterialtype("select * from materialtype");
@@ -36,10 +36,10 @@ CardioDialog::CardioDialog(QWidget *parent, int pid) :
         ui->besitzComboBox->addItem(querybesitz.value(1).toString());
     }
 
-    // CardioDialogen-Datensatz holen
+    // FinanceDialogen-Datensatz holen
     if (pid != 0)
     {
-        QSqlQuery queryone("select * from cardios where id = " + QString::number(pid));
+        QSqlQuery queryone("select * from finances where id = " + QString::number(pid));
         if (queryone.next())
         {
             ui->priceComboBox->setText(queryone.value(1).toString());
@@ -53,14 +53,13 @@ CardioDialog::CardioDialog(QWidget *parent, int pid) :
         ui->delButton->setDisabled(true);
 }
 
-CardioDialog::~CardioDialog()
+FinanceDialog::~FinanceDialog()
 {
     delete ui;
 }
 
-void CardioDialog::save()
+void FinanceDialog::save()
 {/*
-
     //QString price = ui->priceComboBox->text();
     int price = ui->priceComboBox->currentIndex();
     QString date  = ui->herstelldatumDateEdit->text();
@@ -82,11 +81,11 @@ void CardioDialog::save()
     {
         // Speichern in die Datenbank
         QSqlQuery insert;
-        insert.prepare("insert into Cardio (price,herstelldatum /*needs to be added for all columns ) values (:price,:date)");
+        insert.prepare("insert into Finance (price,herstelldatum needs to be added for all columns ) values (:price,:date)");
         insert.bindValue(":price", price);
         insert.bindValue(":date", date);
-//      insert.bindValue(":telnr", telnr);
-//      insert.bindValue(":fk", plzid);
+        insert.bindValue(":telnr", telnr);
+        insert.bindValue(":fk", plzid);
         if (!insert.exec())
         {
             QMessageBox msg;
@@ -94,11 +93,11 @@ void CardioDialog::save()
             msg.setWindowTitle("Fehler");
             msg.addButton("Ok", QMessageBox::YesRole);
             msg.exec();
+
+            */
         }
-      }
-
-
-      else {
+    }
+/*    else {
         // UPDATE table_name
         // SET column1 = value1, column2 = value2, ...
         // WHERE condition;
@@ -122,16 +121,16 @@ void CardioDialog::save()
     }
 */
     // Window schließen
-   // verlassen();
+    verlassen()
 }
 
-void CardioDialog::loeschen()
+void FinanceDialog::loeschen()
 {
     // Löschen macht nur Sinn, bei einem vorhandenen Datensatz
     if (pid != 0) {
         QMessageBox msg;
         msg.setText("Willst du wirklich löschen?");
-        msg.setWindowTitle("CardioDialog löschen");
+        msg.setWindowTitle("FinanceDialog löschen");
         // msg.addButton("Ok", QMessageBox::AcceptRole);
         // msg.addButton("Cancel", QMessageBox::NoRole);
         msg.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
@@ -147,7 +146,7 @@ void CardioDialog::loeschen()
     }
 }
 
-void CardioDialog::verlassen()
+void FinanceDialog::verlassen()
 {
     this->close();
 }

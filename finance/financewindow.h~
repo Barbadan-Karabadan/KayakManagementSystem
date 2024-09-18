@@ -1,0 +1,32 @@
+#ifndef FINANCEWINDOW_H
+#define FINANCEWINDOW_H
+
+#include <QMainWindow>
+#include <QSqlQueryModel>
+#include "financedialog.h"
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class BoatWindow; }
+QT_END_NAMESPACE
+
+class BoatWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    BoatWindow(QWidget *parent = nullptr);
+    ~BoatWindow();
+
+public slots:
+    void neuerKontakt();
+    void editKontakt(QModelIndex);
+    void plzVerwaltung();
+    void suchen();
+    void verlassen();
+
+private:
+    Ui::BoatWindow *ui;
+    QSqlQueryModel *sql;
+    void sqlquery(bool filter);
+};
+#endif // FINANCEWINDOW_H
