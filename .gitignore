@@ -6,8 +6,7 @@ moc_*
 ui_*
 *.db
 Makefile
-listuser*
-mainwindow-org*
+*.*save*
 tmp
 
 # Prerequisites
